@@ -4,6 +4,7 @@ import lambda.data.Person;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -16,7 +17,7 @@ class Exercise3 {
     @Test
     void sortPersonsByAgeUsingArraysSortExpressionLambda() {
         Person[] persons = getPersons();
-
+        Arrays.sort(persons, Comparator.comparingInt(Person::getAge));
         // TODO use Arrays.sort + expression-lambda
 
         assertThat(persons, is(arrayContaining(
